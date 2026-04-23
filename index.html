@@ -1,120 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Vibe Zone</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>K Sai Rithvik Reddy</title>
   <style>
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
     }
 
     body {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      color: white;
-      background: linear-gradient(270deg, #ff00cc, #3333ff, #00ffcc, #ff6600);
-      background-size: 800% 800%;
-      animation: gradientMove 10s ease infinite;
-    }
-
-    @keyframes gradientMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      background: #f5f7fa;
+      color: #1f2937;
     }
 
     .container {
-      text-align: center;
-      backdrop-filter: blur(10px);
-      background: rgba(0, 0, 0, 0.4);
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 0 40px rgba(255,255,255,0.2);
+      width: 90%;
+      max-width: 1000px;
+      margin: auto;
     }
 
-    h1 {
-      font-size: 3rem;
-      background: linear-gradient(90deg, #fff, #ff0, #0ff, #f0f);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: glow 2s infinite alternate;
-    }
-
-    @keyframes glow {
-      from { text-shadow: 0 0 10px #fff; }
-      to { text-shadow: 0 0 25px #ff00ff; }
-    }
-
-    p {
-      margin-top: 15px;
-      font-size: 1.2rem;
-      opacity: 0.9;
-    }
-
-    button {
-      margin-top: 25px;
-      padding: 12px 25px;
-      border: none;
-      border-radius: 30px;
-      background: linear-gradient(45deg, #ff00cc, #00ffff);
+    header {
+      background: #0f172a;
       color: white;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: 0.3s;
-      box-shadow: 0 0 15px rgba(255,255,255,0.5);
+      padding: 50px 0 40px;
     }
 
-    button:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 25px rgba(255,255,255,0.9);
+    header h1 {
+      font-size: 2.4rem;
+      margin-bottom: 8px;
     }
 
-    /* floating bubbles */
-    .bubble {
-      position: absolute;
-      bottom: -100px;
-      width: 40px;
-      height: 40px;
-      background: rgba(255,255,255,0.2);
-      border-radius: 50%;
-      animation: rise 10s infinite ease-in;
+    header p {
+      color: #cbd5e1;
+      max-width: 700px;
     }
 
-    @keyframes rise {
-      0% {
-        transform: translateY(0) scale(1);
-        opacity: 0.5;
+    nav {
+      margin-top: 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-right: 18px;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      background: white;
+      margin: 22px 0;
+      padding: 28px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      margin-bottom: 14px;
+      color: #0f172a;
+      border-bottom: 2px solid #e5e7eb;
+      padding-bottom: 8px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+      color: #111827;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .tag {
+      background: #e2e8f0;
+      color: #0f172a;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+    }
+
+    .highlight {
+      color: #1d4ed8;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px 0 40px;
+      color: #64748b;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.9rem;
       }
-      100% {
-        transform: translateY(-120vh) scale(1.5);
-        opacity: 0;
+
+      nav a {
+        display: inline-block;
+        margin: 6px 12px 0 0;
       }
     }
   </style>
 </head>
-
 <body>
+  <header>
+    <div class="container">
+      <h1>K Sai Rithvik Reddy</h1>
+      <p>
+        B.Tech student who likes building practical things, learning how systems work, and improving step by step.
+        My interests currently revolve around <span class="highlight">coding</span>, <span class="highlight">Git and GitHub</span>,
+        <span class="highlight">Linux</span>, <span class="highlight">robotics ideas</span>, and exploring career paths like
+        <span class="highlight">cybersecurity</span>.
+      </p>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#interests">Interests</a>
+        <a href="#projects">Projects</a>
+        <a href="#goals">Goals</a>
+      </nav>
+    </div>
+  </header>
 
-  <div class="container">
-    <h1>🚀 Welcome to My Page</h1>
-    <p>This background is absolutely unhinged.</p>
-    <button onclick="alert('You clicked the vibe button 😎')">Click Me</button>
-  </div>
+  <main class="container">
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        I am a student who enjoys understanding concepts properly instead of just memorizing them. I like work that has a practical side to it,
+        whether that is writing code, figuring out Git workflows, thinking through mini project ideas, or solving technical problems patiently.
+      </p>
+      <br />
+      <p>
+        I also prefer keeping things simple and useful. I am more interested in making something that works cleanly than making something that only looks flashy.
+      </p>
+    </section>
 
-  <!-- bubbles -->
-  <div class="bubble" style="left:10%; animation-duration:8s;"></div>
-  <div class="bubble" style="left:30%; animation-duration:12s;"></div>
-  <div class="bubble" style="left:50%; animation-duration:10s;"></div>
-  <div class="bubble" style="left:70%; animation-duration:14s;"></div>
-  <div class="bubble" style="left:90%; animation-duration:9s;"></div>
+    <section id="interests">
+      <h2>Interests</h2>
+      <div class="tag-list">
+        <span class="tag">C++</span>
+        <span class="tag">Git & GitHub</span>
+        <span class="tag">Linux</span>
+        <span class="tag">Cybersecurity</span>
+        <span class="tag">Robotics</span>
+        <span class="tag">Arduino</span>
+        <span class="tag">Problem Solving</span>
+        <span class="tag">Technical Presentations</span>
+      </div>
+    </section>
 
+    <section id="projects">
+      <h2>What I Like Working On</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Programming Practice</h3>
+          <p>
+            I spend time improving my understanding of programming fundamentals, especially in C++ and logic-based problem solving.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Version Control</h3>
+          <p>
+            I am learning Git and GitHub in a practical way by doing branching, commits, merge conflicts, tags, and pull requests.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Technical Ideas</h3>
+          <p>
+            I am interested in project ideas connected to robotics, automation, and systems that solve real-world problems.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Learning by Doing</h3>
+          <p>
+            I prefer hands-on learning through workshops, assignments, mini projects, and repeated practice over only theory.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="goals">
+      <h2>Current Goals</h2>
+      <ul>
+        <li>Build stronger fundamentals in coding and computer science subjects.</li>
+        <li>Get more confident with Git, GitHub, and collaborative workflows.</li>
+        <li>Explore cybersecurity seriously and understand whether to pursue it deeply.</li>
+        <li>Work on small but meaningful technical projects that improve practical skills.</li>
+        <li>Keep improving communication for presentations, reviews, and teamwork.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Made by K Sai Rithvik Reddy</p>
+    </div>
+  </footer>
 </body>
 </html>
