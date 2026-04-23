@@ -3,232 +3,887 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>K Sai Rithvik Reddy</title>
+  <title>K Sai Rithvik Reddy | Profile</title>
+  <meta name="description" content="Personal profile of K Sai Rithvik Reddy - Git, Linux, C++, operating systems, cybersecurity, and problem solving." />
   <style>
+    :root {
+      --bg: #05070b;
+      --bg-soft: rgba(15, 23, 42, 0.58);
+      --panel: rgba(9, 14, 24, 0.62);
+      --panel-strong: rgba(9, 14, 24, 0.82);
+      --line: rgba(96, 165, 250, 0.22);
+      --line-2: rgba(34, 211, 238, 0.14);
+      --text: #e5eefc;
+      --muted: #93a4bf;
+      --green: #00ff9d;
+      --blue: #59a8ff;
+      --cyan: #4de2ff;
+      --shadow: 0 18px 60px rgba(0, 0, 0, 0.45);
+      --radius: 22px;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
-      background: #f5f7fa;
-      color: #1f2937;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(89, 168, 255, 0.12), transparent 28%),
+        radial-gradient(circle at 82% 14%, rgba(0, 255, 157, 0.10), transparent 24%),
+        radial-gradient(circle at 70% 72%, rgba(77, 226, 255, 0.08), transparent 25%),
+        linear-gradient(180deg, #04060a 0%, #07101b 40%, #04070d 100%);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
     }
 
-    .container {
-      width: 90%;
-      max-width: 1000px;
-      margin: auto;
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
+      pointer-events: none;
+      opacity: 0.32;
     }
 
-    header {
-      background: #0f172a;
-      color: white;
-      padding: 50px 0 40px;
+    .orb {
+      position: fixed;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      filter: blur(70px);
+      opacity: 0.16;
+      pointer-events: none;
+      z-index: 0;
+      animation: drift 18s ease-in-out infinite;
     }
 
-    header h1 {
-      font-size: 2.4rem;
-      margin-bottom: 8px;
+    .orb.one {
+      background: var(--green);
+      top: 4%;
+      right: -100px;
     }
 
-    header p {
-      color: #cbd5e1;
-      max-width: 700px;
+    .orb.two {
+      background: var(--blue);
+      bottom: 8%;
+      left: -80px;
+      animation-delay: -7s;
     }
 
-    nav {
-      margin-top: 20px;
+    @keyframes drift {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(12px, -18px) scale(1.07); }
     }
 
-    nav a {
-      color: white;
+    .wrap {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .glass {
+      background: linear-gradient(180deg, rgba(18, 26, 40, 0.70), rgba(7, 12, 21, 0.58));
+      border: 1px solid rgba(120, 156, 214, 0.16);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .nav {
+      position: sticky;
+      top: 14px;
+      z-index: 15;
+      margin: 16px auto 0;
+      border-radius: 18px;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+    }
+
+    .brand-badge {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      color: #04110d;
+      background: linear-gradient(135deg, var(--green), var(--cyan));
+      box-shadow: 0 0 24px rgba(0,255,157,0.22);
+      font-weight: 800;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
       text-decoration: none;
-      margin-right: 18px;
       font-size: 0.95rem;
+      transition: color 0.25s ease, transform 0.25s ease;
     }
 
-    nav a:hover {
-      text-decoration: underline;
+    .nav-links a:hover {
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      min-height: calc(100vh - 90px);
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      align-items: center;
+      padding: 42px 0 30px;
+    }
+
+    .hero-copy {
+      padding: 14px 4px 14px 2px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--cyan);
+      border: 1px solid rgba(77, 226, 255, 0.16);
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(10, 18, 28, 0.5);
+      font-size: 0.9rem;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 12px rgba(0,255,157,0.6);
+    }
+
+    h1 {
+      font-size: clamp(2.9rem, 7vw, 5.2rem);
+      line-height: 0.96;
+      letter-spacing: -2px;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 span {
+      display: block;
+      color: var(--blue);
+      text-shadow: 0 0 28px rgba(89,168,255,0.24);
+    }
+
+    .hero-text {
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 1.06rem;
+      margin-bottom: 26px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 26px;
+    }
+
+    .btn {
+      padding: 13px 18px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      color: #04110d;
+      background: linear-gradient(135deg, var(--green), var(--cyan));
+      box-shadow: 0 10px 30px rgba(0,255,157,0.16);
+    }
+
+    .btn-secondary {
+      color: var(--text);
+      background: rgba(255,255,255,0.03);
+      border-color: rgba(150, 179, 225, 0.16);
+    }
+
+    .quick-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      max-width: 720px;
+    }
+
+    .stat {
+      padding: 16px;
+      border-radius: 18px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.25rem;
+      margin-bottom: 4px;
+      color: var(--text);
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .terminal {
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+      transform: perspective(1000px) rotateY(-6deg) rotateX(4deg);
+      transition: transform 0.6s ease;
+    }
+
+    .terminal:hover {
+      transform: perspective(1000px) rotateY(-2deg) rotateX(2deg) translateY(-4px);
+    }
+
+    .terminal-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      background: rgba(255,255,255,0.035);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .dots span {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      display: block;
+    }
+
+    .dots span:nth-child(1) { background: #ff5f57; }
+    .dots span:nth-child(2) { background: #ffbd2f; }
+    .dots span:nth-child(3) { background: #28c840; }
+
+    .terminal-title {
+      color: #b8c6dd;
+      font-size: 0.88rem;
+      letter-spacing: 0.3px;
+    }
+
+    .terminal-body {
+      min-height: 420px;
+      padding: 26px 24px;
+      background: linear-gradient(180deg, rgba(3,8,15,0.96), rgba(6,10,17,0.92));
+      font-family: Consolas, Monaco, monospace;
+      font-size: 0.98rem;
+      line-height: 1.85;
+      color: #d8f7ea;
+      position: relative;
+    }
+
+    .term-line {
+      color: #9fb8d8;
+      margin-bottom: 4px;
+    }
+
+    .prompt {
+      color: var(--green);
+    }
+
+    .typed {
+      color: var(--text);
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 10px;
+      height: 1.1em;
+      transform: translateY(2px);
+      background: var(--green);
+      margin-left: 6px;
+      animation: blink 0.9s steps(1) infinite;
+      box-shadow: 0 0 12px rgba(0,255,157,0.4);
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    .term-output {
+      margin-top: 14px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .term-chip {
+      width: fit-content;
+      max-width: 100%;
+      padding: 9px 12px;
+      border: 1px solid rgba(77, 226, 255, 0.14);
+      background: rgba(77, 226, 255, 0.05);
+      color: #d7ecff;
+      border-radius: 12px;
+      opacity: 0;
+      transform: translateY(8px);
+      animation: riseIn 0.45s ease forwards;
+    }
+
+    @keyframes riseIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     section {
-      background: white;
-      margin: 22px 0;
-      padding: 28px;
-      border-radius: 12px;
-      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+      padding: 36px 0;
     }
 
-    h2 {
-      font-size: 1.4rem;
-      margin-bottom: 14px;
-      color: #0f172a;
-      border-bottom: 2px solid #e5e7eb;
-      padding-bottom: 8px;
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: end;
+      margin-bottom: 22px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      letter-spacing: -1px;
+    }
+
+    .section-head p {
+      max-width: 540px;
+      color: var(--muted);
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px;
+      gap: 18px;
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .card {
-      background: #f8fafc;
-      border: 1px solid #e5e7eb;
-      border-radius: 10px;
-      padding: 16px;
+      padding: 22px;
+      border-radius: var(--radius);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.32s ease, border-color 0.32s ease, box-shadow 0.32s ease;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: auto -30px -30px auto;
+      width: 110px;
+      height: 110px;
+      background: radial-gradient(circle, rgba(77,226,255,0.16), transparent 70%);
+      pointer-events: none;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(89, 168, 255, 0.24);
+      box-shadow: 0 16px 42px rgba(0, 0, 0, 0.28);
     }
 
     .card h3 {
-      margin-bottom: 8px;
-      font-size: 1.05rem;
-      color: #111827;
+      font-size: 1.18rem;
+      margin-bottom: 10px;
     }
 
-    ul {
-      padding-left: 20px;
+    .card p {
+      color: var(--muted);
+      font-size: 0.98rem;
     }
 
-    li {
-      margin-bottom: 8px;
+    .tiny-label {
+      display: inline-block;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 12px;
     }
 
-    .tag-list {
+    .skill-list, .goal-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 12px;
+      gap: 12px;
     }
 
-    .tag {
-      background: #e2e8f0;
-      color: #0f172a;
-      padding: 8px 12px;
+    .skill-list span, .goal-list span {
+      padding: 10px 14px;
       border-radius: 999px;
-      font-size: 0.9rem;
+      border: 1px solid rgba(150, 179, 225, 0.16);
+      background: rgba(255,255,255,0.03);
+      color: #d4e0f5;
+      font-size: 0.92rem;
     }
 
-    .highlight {
-      color: #1d4ed8;
-      font-weight: bold;
+    .timeline {
+      display: grid;
+      gap: 14px;
     }
 
-    footer {
-      text-align: center;
-      padding: 24px 0 40px;
-      color: #64748b;
+    .timeline-item {
+      padding: 18px 20px;
+      border-radius: 18px;
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .timeline-item strong {
+      color: var(--green);
+      font-size: 0.88rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .timeline-item h4 {
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+    }
+
+    .timeline-item p {
+      color: var(--muted);
+    }
+
+    .contact-card {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      padding: 24px;
+      border-radius: 26px;
+    }
+
+    .contact-card p {
+      max-width: 650px;
+      color: var(--muted);
+    }
+
+    .footer {
+      padding: 32px 0 42px;
+      color: #7f91ae;
       font-size: 0.95rem;
+      text-align: center;
     }
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 1.9rem;
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-1 { transition-delay: 0.08s; }
+    .delay-2 { transition-delay: 0.16s; }
+    .delay-3 { transition-delay: 0.24s; }
+
+    @media (max-width: 980px) {
+      .hero,
+      .grid-3,
+      .grid-2,
+      .timeline-item,
+      .contact-card {
+        grid-template-columns: 1fr;
       }
 
-      nav a {
-        display: inline-block;
-        margin: 6px 12px 0 0;
+      .hero {
+        padding-top: 26px;
+      }
+
+      .terminal {
+        transform: none;
+      }
+
+      .quick-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        align-items: start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        width: min(100% - 24px, 1120px);
+      }
+
+      .nav-inner {
+        gap: 12px;
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      h1 {
+        letter-spacing: -1px;
+      }
+
+      .terminal-body {
+        min-height: 360px;
+        padding: 20px 18px;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <h1>K Sai Rithvik Reddy</h1>
-      <p>
-        B.Tech student who likes building practical things, learning how systems work, and improving step by step.
-        My interests currently revolve around <span class="highlight">coding</span>, <span class="highlight">Git and GitHub</span>,
-        <span class="highlight">Linux</span>, <span class="highlight">robotics ideas</span>, and exploring career paths like
-        <span class="highlight">cybersecurity</span>.
-      </p>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#interests">Interests</a>
-        <a href="#projects">Projects</a>
-        <a href="#goals">Goals</a>
-      </nav>
-    </div>
-  </header>
+  <div class="orb one"></div>
+  <div class="orb two"></div>
 
-  <main class="container">
-    <section id="about">
-      <h2>About Me</h2>
-      <p>
-        I am a student who enjoys understanding concepts properly instead of just memorizing them. I like work that has a practical side to it,
-        whether that is writing code, figuring out Git workflows, thinking through mini project ideas, or solving technical problems patiently.
-      </p>
-      <br />
-      <p>
-        I also prefer keeping things simple and useful. I am more interested in making something that works cleanly than making something that only looks flashy.
-      </p>
-    </section>
-
-    <section id="interests">
-      <h2>Interests</h2>
-      <div class="tag-list">
-        <span class="tag">C++</span>
-        <span class="tag">Git & GitHub</span>
-        <span class="tag">Linux</span>
-        <span class="tag">Cybersecurity</span>
-        <span class="tag">Robotics</span>
-        <span class="tag">Arduino</span>
-        <span class="tag">Problem Solving</span>
-        <span class="tag">Technical Presentations</span>
+  <div class="wrap">
+    <nav class="nav glass reveal show">
+      <div class="nav-inner">
+        <div class="brand">
+          <div class="brand-badge">KR</div>
+          <div>K Sai Rithvik Reddy</div>
+        </div>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#focus">Focus</a>
+          <a href="#journey">Journey</a>
+          <a href="#contact">Contact</a>
+        </div>
       </div>
-    </section>
+    </nav>
 
-    <section id="projects">
-      <h2>What I Like Working On</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Programming Practice</h3>
-          <p>
-            I spend time improving my understanding of programming fundamentals, especially in C++ and logic-based problem solving.
-          </p>
+    <section class="hero">
+      <div class="hero-copy reveal show">
+        <div class="eyebrow">Building with logic, not noise</div>
+        <h1>Modern.<span>System-Focused.</span>Still Dangerous.</h1>
+        <p class="hero-text">
+          I am K Sai Rithvik Reddy, a student who prefers understanding how things actually work. My current interests are centered around Git workflows, Linux, C++, operating systems, system fundamentals, and exploring cybersecurity with a practical mindset.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#focus">See What I Work On</a>
+          <a class="btn btn-secondary" href="#contact">Open Source Club Ready</a>
         </div>
-        <div class="card">
-          <h3>Version Control</h3>
-          <p>
-            I am learning Git and GitHub in a practical way by doing branching, commits, merge conflicts, tags, and pull requests.
-          </p>
+        <div class="quick-stats">
+          <div class="stat glass">
+            <strong>Git</strong>
+            <span>Branches, merges, conflicts, PR workflow</span>
+          </div>
+          <div class="stat glass">
+            <strong>Linux</strong>
+            <span>Hands-on usage, setup, troubleshooting mindset</span>
+          </div>
+          <div class="stat glass">
+            <strong>OS + C++</strong>
+            <span>System thinking, logic building, fundamentals</span>
+          </div>
         </div>
-        <div class="card">
-          <h3>Technical Ideas</h3>
-          <p>
-            I am interested in project ideas connected to robotics, automation, and systems that solve real-world problems.
-          </p>
+      </div>
+
+      <div class="terminal glass reveal delay-1 show">
+        <div class="terminal-top">
+          <div class="dots"><span></span><span></span><span></span></div>
+          <div class="terminal-title">/profile/runtime</div>
         </div>
-        <div class="card">
-          <h3>Learning by Doing</h3>
-          <p>
-            I prefer hands-on learning through workshops, assignments, mini projects, and repeated practice over only theory.
-          </p>
+        <div class="terminal-body">
+          <div class="term-line"><span class="prompt">rithvik@profile:~$</span> whoami</div>
+          <div class="term-line typed">Student developer with a systems-first mindset</div>
+          <br>
+          <div class="term-line"><span class="prompt">rithvik@profile:~$</span> load_focus --current</div>
+          <div class="term-line typed" id="typed-line"></div><span class="cursor" id="cursor"></span>
+          <div class="term-output" id="term-output"></div>
         </div>
       </div>
     </section>
 
-    <section id="goals">
-      <h2>Current Goals</h2>
-      <ul>
-        <li>Build stronger fundamentals in coding and computer science subjects.</li>
-        <li>Get more confident with Git, GitHub, and collaborative workflows.</li>
-        <li>Explore cybersecurity seriously and understand whether to pursue it deeply.</li>
-        <li>Work on small but meaningful technical projects that improve practical skills.</li>
-        <li>Keep improving communication for presentations, reviews, and teamwork.</li>
-      </ul>
+    <section id="about" class="reveal">
+      <div class="section-head">
+        <h2>About</h2>
+        <p>
+          I learn best by doing. Whether it is debugging code, fixing Git issues, working through system concepts, or understanding why something behaves the way it does, I prefer depth over memorizing surface-level answers.
+        </p>
+      </div>
+      <div class="grid grid-2">
+        <div class="card glass reveal delay-1">
+          <div class="tiny-label">Approach</div>
+          <h3>Practical over performative</h3>
+          <p>
+            I am more interested in building real understanding than making things look impressive without substance. Clean workflows, correct logic, and strong fundamentals matter more to me than unnecessary hype.
+          </p>
+        </div>
+        <div class="card glass reveal delay-2">
+          <div class="tiny-label">Mindset</div>
+          <h3>Curious about how systems behave</h3>
+          <p>
+            I naturally get drawn toward lower-level concepts, operating systems, command-line tooling, and the interaction between software, memory, and execution. That is where things start getting interesting.
+          </p>
+        </div>
+      </div>
     </section>
-  </main>
 
-  <footer>
-    <div class="container">
-      <p>Made by K Sai Rithvik Reddy</p>
+    <section id="skills" class="reveal">
+      <div class="section-head">
+        <h2>Skills & Interests</h2>
+        <p>
+          Not a random buzzword list. These are the areas I am actually spending time on and want to keep improving.
+        </p>
+      </div>
+      <div class="card glass reveal delay-1">
+        <div class="skill-list">
+          <span>C Programming</span>
+          <span>C++</span>
+          <span>Git</span>
+          <span>GitHub</span>
+          <span>Linux</span>
+          <span>Operating Systems</span>
+          <span>System Fundamentals</span>
+          <span>Problem Solving</span>
+          <span>Command Line Workflow</span>
+          <span>Cybersecurity Exploration</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="focus" class="reveal">
+      <div class="section-head">
+        <h2>Current Focus</h2>
+        <p>
+          A mix of fundamentals and hands-on work. The goal is to get stronger technically without faking expertise I have not earned yet.
+        </p>
+      </div>
+      <div class="grid grid-3">
+        <div class="card glass reveal delay-1">
+          <div class="tiny-label">01</div>
+          <h3>Version control done properly</h3>
+          <p>
+            Working with branches, merge conflicts, tags, pull requests, and clean commit flow instead of treating Git like just upload and pray.
+          </p>
+        </div>
+        <div class="card glass reveal delay-2">
+          <div class="tiny-label">02</div>
+          <h3>Operating systems and system behavior</h3>
+          <p>
+            Building stronger intuition around processes, memory, execution, and what is happening behind the code rather than staying only at syntax level.
+          </p>
+        </div>
+        <div class="card glass reveal delay-3">
+          <div class="tiny-label">03</div>
+          <h3>Cybersecurity direction</h3>
+          <p>
+            Exploring whether cybersecurity is the field I want to lock into by first getting the base strong: Linux, systems, tools, debugging, and disciplined learning.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="journey" class="reveal">
+      <div class="section-head">
+        <h2>Learning Journey</h2>
+        <p>
+          This page is not pretending I have ten years of experience. It reflects the stage I am in right now: learning fast, doing the work, and getting better through practice.
+        </p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item glass reveal delay-1">
+          <strong>Foundation</strong>
+          <div>
+            <h4>Coding fundamentals and academic problem solving</h4>
+            <p>
+              Building logic, getting more comfortable with code structure, and focusing on understanding instead of just reproducing solutions.
+            </p>
+          </div>
+        </div>
+        <div class="timeline-item glass reveal delay-2">
+          <strong>Workflow</strong>
+          <div>
+            <h4>Git, GitHub, and collaboration basics done the real way</h4>
+            <p>
+              Branch creation, commits, merges, conflict resolution, annotated tags, and pull requests are all part of the process now, not just theory.
+            </p>
+          </div>
+        </div>
+        <div class="timeline-item glass reveal delay-3">
+          <strong>Direction</strong>
+          <div>
+            <h4>Leaning toward systems and cybersecurity</h4>
+            <p>
+              The more I learn, the more I am drawn toward areas where understanding the machine matters: OS concepts, tooling, debugging, and secure thinking.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <div class="section-head">
+        <h2>Goals</h2>
+        <p>
+          Short-term targets that are actually relevant to how I am learning right now.
+        </p>
+      </div>
+      <div class="card glass reveal delay-1">
+        <div class="goal-list">
+          <span>Strengthen core CS fundamentals</span>
+          <span>Get sharper with Git workflows</span>
+          <span>Become more fluent in Linux</span>
+          <span>Understand OS concepts better</span>
+          <span>Explore cybersecurity seriously</span>
+          <span>Build small but meaningful projects</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="reveal">
+      <div class="contact-card glass reveal delay-1">
+        <div>
+          <div class="tiny-label">Final Output</div>
+          <h2>Built to stand out, but still sound real.</h2>
+          <p>
+            This site reflects what I am actually interested in right now. No fake founder story, no random inflated titles — just a strong visual layer on top of real direction and real learning.
+          </p>
+        </div>
+        <a class="btn btn-primary" href="#top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' }); return false;">Back to Top</a>
+      </div>
+    </section>
+
+    <div class="footer">
+      Made by K Sai Rithvik Reddy · GitHub profile page / personal site
     </div>
-  </footer>
+  </div>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    reveals.forEach((item) => revealObserver.observe(item));
+
+    const typedLine = document.getElementById('typed-line');
+    const terminalOutput = document.getElementById('term-output');
+    const cursor = document.getElementById('cursor');
+
+    const phrases = [
+      'C Programming',
+      'Git & GitHub Workflows',
+      'Linux',
+      'Operating Systems',
+      'System Fundamentals',
+      'Cybersecurity Exploration'
+    ];
+
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    function addChip(text, delay) {
+      const chip = document.createElement('div');
+      chip.className = 'term-chip';
+      chip.style.animationDelay = delay + 'ms';
+      chip.textContent = '[loaded] ' + text;
+      terminalOutput.appendChild(chip);
+    }
+
+    phrases.forEach((item, index) => addChip(item, 200 + index * 130));
+
+    function typeLoop() {
+      const current = phrases[phraseIndex];
+
+      if (!deleting) {
+        typedLine.textContent = current.slice(0, charIndex + 1);
+        charIndex++;
+
+        if (charIndex === current.length) {
+          deleting = true;
+          setTimeout(typeLoop, 1100);
+          return;
+        }
+      } else {
+        typedLine.textContent = current.slice(0, charIndex - 1);
+        charIndex--;
+
+        if (charIndex === 0) {
+          deleting = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+        }
+      }
+
+      setTimeout(typeLoop, deleting ? 40 : 75);
+    }
+
+    typeLoop();
+
+    const heroTerminal = document.querySelector('.terminal');
+    window.addEventListener('mousemove', (e) => {
+      if (window.innerWidth < 981) return;
+      const x = (e.clientX / window.innerWidth - 0.5) * 5;
+      const y = (e.clientY / window.innerHeight - 0.5) * -4;
+      heroTerminal.style.transform = `perspective(1000px) rotateY(${x - 4}deg) rotateX(${y + 2}deg)`;
+    });
+
+    window.addEventListener('mouseleave', () => {
+      if (window.innerWidth < 981) return;
+      heroTerminal.style.transform = 'perspective(1000px) rotateY(-6deg) rotateX(4deg)';
+    });
+  </script>
 </body>
 </html>
